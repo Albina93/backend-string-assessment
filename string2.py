@@ -4,7 +4,7 @@ Kenzie assignment: String2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Albina Tileubergen-Thomas"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -23,8 +23,11 @@ __author__ = "???"
 
 
 def verbing(s):
-    # your code here
-    return
+    if len(s) > 3 and s.endswith("ing"):
+        return s + "ly"
+    elif len(s) > 3:
+        return s + "ing"
+    return s
 
 
 # E. not_bad
@@ -37,8 +40,13 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    s_not = s.find("not")
+    s_bad = s.find("bad")
+    if s_not < s_bad:
+        return s.replace(s[s_not:s_bad+3], "good")
+        # 3-ti koskan sebebim bad sozi 3 arip, sol bitkennen son replace jasaydy.
+        # egerde kospasam bad sozin kosyp jiberedi
+    return s
 
 
 # F. front_back
@@ -52,8 +60,18 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    first, second = (len(a) + 1)/2, (len(b) + 1)/2
+    return a[:int(first)] + b[:int(second)] + a[int(first):] + b[int(second):]
+
+    # if len(a) % 2 == 0:
+    #     first, second = a[:int(len(a)/2)], a[int(len(a)/2):]
+    # else:
+    #     first, second = a[:int((len(a)+1)/2)], a[int((len(a)+1)/2):]
+    # if len(b) % 2 == 0:
+    #     third, fourth = b[:int(len(b)/2)], b[int(len(b)/2):]
+    # else:
+    #     third, fourth = b[:int((len(b)+1)/2)], b[int((len(b)+1)/2):]
+    # return first + third + second + fourth
 
 
 # Provided simple test() function used in main() to print
